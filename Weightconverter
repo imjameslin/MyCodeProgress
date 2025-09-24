@@ -1,0 +1,16 @@
+#Weight converter
+
+weight = float(input("Enter your weight: "))
+unit = (input("Kilograms or Pounds? (K/P): ")).lower()
+kg_to_lbs = 2.205
+
+if unit in ("k", "kilograms", "kilos"):
+    converted_weight = weight*2.205
+    unit = "Pounds"
+    print(f"You weigh {round(weight,2)} {unit}")
+elif unit in ("p", "pounds", "pound", "lbs"):
+    converted_weight = weight/2.205
+    unit = "Kilograms"
+    print(f"You weigh {round(converted_weight, 2)} {unit}")
+else:
+    print(f"{unit} is not a valid unit")
