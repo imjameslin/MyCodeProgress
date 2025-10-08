@@ -1,0 +1,37 @@
+
+menu = {"pizza": 8.99,
+        "burger": 5.49,
+        "soda": 1.99,
+        "popcorn": 3.49,
+        "hot dog": 4.29,
+        "candy": 2.99,
+        "nachos": 4.99,
+        "ice cream": 3.99}
+
+cart = []
+total = 0
+
+print("---------MENU---------")
+for key, value in menu.items():
+    print(f"{key}: ${value:.2f}")
+print("----------------------")
+
+while True:
+    food = input("Select an item from the menu \nto view your cart type 'cart' or 'q' to quit\n: ").lower()
+    if food == 'q':
+        break
+    elif food in menu:
+        cart.append(food)
+        total += menu[food]
+        print(f"\n{food} added to cart. Current total: ${total:.2f}")
+    elif food == 'cart':
+        if len(cart) == 0:
+            print("Your cart is empty.") 
+        else:
+            print(f"You have {len(cart)} items in your cart:")
+            for item in cart:
+                print(f"- {item}: ${menu[item]:.2f}")
+            print(f"Total: ${total:.2f}")
+
+    else: print("\nItem not found in menu. Please try again.")
+
